@@ -1,0 +1,51 @@
+<h1>Simple Form</h1>
+<form #simpleForm="ngForm" (ngSubmit)="getValue(simpleForm.value)">
+  <input type="text" ngModel name="user" placeholder="Enter Name">
+  <br><br>
+  <input type="text" ngModel name="age" placeholder="Enter age">
+  <br><br>
+  <input type="text" ngModel name="city" placeholder="Enter city">
+  <br><br> 
+  <button>Get</button>
+</form>
+
+#app-components.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-app';
+  getValue(val:any)
+  {
+    console.log(val);
+  }
+}
+
+
+#app-modules.ts
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import {FormsModule} from '@angular/forms'
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
